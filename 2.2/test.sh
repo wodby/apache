@@ -19,7 +19,7 @@ apache() {
 apache make check-ready wait_seconds=1 max_try=10 host="apache"
 
 echo -n "Checking version... "
-apache httpd -v | grep -q "Server version: Apache\/2.4.*"
+apache httpd -v | grep -q "Server version: Apache\/2.2.*"
 echo "OK!"
 
 echo -n "Sending test request... "
