@@ -21,6 +21,7 @@
 | APACHE_LOG_LEVEL               | warn                                         | |
 | APACHE_MAX_KEEP_ALIVE_REQUESTS | 100                                          | |
 | APACHE_REQUEST_READ_TIMEOUT    | header=20-40,MinRate=500 body=20,MinRate=500 | |
+| APACHE_SERVER_NAME             | default                                      | |
 | APACHE_SERVER_TOKENS           | Full                                         | |
 | APACHE_SERVER_SIGNATURE        | Off                                          | |
 | APACHE_TIMEOUT                 | 60                                           | |

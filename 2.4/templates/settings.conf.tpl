@@ -7,26 +7,26 @@
 #
 # Timeout: The number of seconds before receives and sends time out.
 #
-Timeout {{ getenv "APACHE_TIMEOUT" "60" }}
+Timeout 60
 
 #
 # KeepAlive: Whether or not to allow persistent connections (more than
 # one request per connection). Set to "Off" to deactivate.
 #
-KeepAlive {{ getenv "APACHE_KEEP_ALIVE" "On" }}
+KeepAlive On
 
 #
 # MaxKeepAliveRequests: The maximum number of requests to allow
 # during a persistent connection. Set to 0 to allow an unlimited amount.
 # We recommend you leave this number high, for maximum performance.
 #
-MaxKeepAliveRequests {{ getenv "APACHE_MAX_KEEP_ALIVE_REQUESTS" "100" }}
+MaxKeepAliveRequests 100
 
 #
 # KeepAliveTimeout: Number of seconds to wait for the next request from the
 # same client on the same connection.
 #
-KeepAliveTimeout {{ getenv "APACHE_KEEP_ALIVE_TIMEOUT" "5" }}
+KeepAliveTimeout 5
 
 #
 # UseCanonicalName: Determines how Apache constructs self-referencing
@@ -35,14 +35,14 @@ KeepAliveTimeout {{ getenv "APACHE_KEEP_ALIVE_TIMEOUT" "5" }}
 # by the client.  When set "On", Apache will use the value of the
 # ServerName directive.
 #
-UseCanonicalName {{ getenv "APACHE_USE_CANONICAL_NAME" "Off" }}
+UseCanonicalName Off
 
 #
 # AccessFileName: The name of the file to look for in each directory
 # for additional configuration directives.  See also the AllowOverride
 # directive.
 #
-AccessFileName {{ getenv "APACHE_ACCESS_FILE_NAME" ".htaccess" }}
+AccessFileName .htaccess
 
 #
 # ServerTokens
@@ -52,7 +52,7 @@ AccessFileName {{ getenv "APACHE_ACCESS_FILE_NAME" ".htaccess" }}
 # Set to one of:  Full | OS | Minor | Minimal | Major | Prod
 # where Full conveys the most information, and Prod the least.
 #
-ServerTokens {{ getenv "APACHE_SERVER_TOKENS" "Full" }}
+ServerTokens Full
 
 #
 # Optionally add a line containing the server version and virtual host
@@ -62,7 +62,7 @@ ServerTokens {{ getenv "APACHE_SERVER_TOKENS" "Full" }}
 # Set to "EMail" to also include a mailto: link to the ServerAdmin.
 # Set to one of:  On | Off | EMail
 #
-ServerSignature {{ getenv "APACHE_SERVER_SIGNATURE" "Off" }}
+ServerSignature Off
 
 #
 # HostnameLookups: Log the names of clients or just their IP addresses
@@ -72,7 +72,7 @@ ServerSignature {{ getenv "APACHE_SERVER_SIGNATURE" "Off" }}
 # each client request will result in AT LEAST one lookup request to the
 # nameserver.
 #
-HostnameLookups {{ getenv "APACHE_HOSTNAME_LOOKUPS" "Off" }}
+HostnameLookups Off
 
 #
 # Set a timeout for how long the client may take to send the request header
@@ -86,5 +86,5 @@ HostnameLookups {{ getenv "APACHE_HOSTNAME_LOOKUPS" "Off" }}
 # To disable, set to header=0 body=0
 #
 <IfModule reqtimeout_module>
-  RequestReadTimeout {{ getenv "APACHE_REQUEST_READ_TIMEOUT" "header=20-40,MinRate=500 body=20,MinRate=500" }}
+  RequestReadTimeout header=20-40,MinRate=500 body=20,MinRate=500
 </IfModule>

@@ -27,6 +27,7 @@ fixPermissions() {
 
 execTpl "httpd.conf.tpl"  "${APACHE_DIR}/conf/httpd.conf"
 execTpl "settings.conf.tpl" "${APACHE_DIR}/conf/conf.d/settings.conf"
+execTpl "vhost.conf.tpl" "${APACHE_DIR}/conf/conf.d/vhost.conf"
 
 fixPermissions
 execInitScripts
