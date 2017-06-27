@@ -73,3 +73,11 @@ ServerSignature {{ getenv "APACHE_SERVER_SIGNATURE" "Off" }}
 # nameserver.
 #
 HostnameLookups {{ getenv "APACHE_HOSTNAME_LOOKUPS" "Off" }}
+
+<IfModule event.c>
+ServerLimit           {{ getenv "APACHE_MPM_EVENT_SERVER_LIMIT" "16" }}
+MaxClients            {{ getenv "APACHE_MPM_EVENT_MAX_CLIENTS" "400" }}
+StartServers          {{ getenv "APACHE_MPM_EVENT_START_SERVERS" "3" }}
+ThreadsPerChild       {{ getenv "APACHE_MPM_EVENT_THREADS_PER_CHILD" "25" }}
+ThreadLimit           {{ getenv "APACHE_MPM_EVENT_THREAD_LIMIT" "64" }}
+</IfModule>
