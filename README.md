@@ -40,32 +40,40 @@ Images are built via [Travis CI](https://travis-ci.org/wodby/php) and published 
 
 ## Enabled Modules
 
-```
-mod_alias
-mod_auth_basic
-mod_authn_file
-mod_authz_groupfile
-mod_authz_host
-mod_authz_user
-mod_autoindex
-mod_deflate
-mod_dir
-mod_env
-mod_expires
-mod_filter
-mod_headers
-mod_ldap
-mod_log_config
-mod_mime
-mod_negotiation
-mod_reqtimeout
-mod_rewrite
-mod_proxy
-mod_setenvif
-mod_ssl
-mod_status
-mod_version
-```
+| Variable | 2.4 | 2.2 |
+| -------- | --- | --- |
+| mod_access_compat   |  | - |
+| mod_alias           |  |   |
+| mod_auth_basic      |  |   |
+| mod_authn_file      |  |   |
+| mod_authn_core      |  | - |
+| mod_authz_core      |  | - |
+| mod_authz_groupfile |  |   |
+| mod_authz_host      |  |   |
+| mod_authz_user      |  |   |
+| mod_autoindex       |  |   |
+| mod_deflate         |  |   |
+| mod_dir             |  |   |
+| mod_env             |  |   |
+| mod_expires         |  |   |
+| mod_filter          |  |   |
+| mod_headers         |  |   |
+| mod_http2           |  | - |
+| mod_ldap            |  |   |
+| mod_log_config      |  |   |
+| mod_log_debug       |  | - |
+| mod_mime            |  |   |
+| mod_negotiation     |  |   |
+| mod_reqtimeout      |  |   |
+| mod_rewrite         |  |   |
+| mod_proxy_fcgi      |  | - |
+| mod_proxy           |  |   |
+| mod_proxy_http2     |  | - |
+| mod_setenvif        |  |   |
+| mod_ssl             |  |   |
+| mod_status          |  |   |
+| mod_unixd           |  | - |
+| mod_version         |  |   |
 
 ## Actions
 
