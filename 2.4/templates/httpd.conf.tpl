@@ -87,8 +87,8 @@ LoadModule mime_module modules/mod_mime.so
 LoadModule negotiation_module modules/mod_negotiation.so
 LoadModule reqtimeout_module modules/mod_reqtimeout.so
 LoadModule rewrite_module modules/mod_rewrite.so
-LoadModule proxy_fcgi_module modules/mod_proxy_fcgi.so
 LoadModule proxy_module modules/mod_proxy.so
+LoadModule proxy_fcgi_module modules/mod_proxy_fcgi.so
 LoadModule proxy_http2_module modules/mod_proxy_http2.so
 LoadModule setenvif_module modules/mod_setenvif.so
 LoadModule ssl_module modules/mod_ssl.so
