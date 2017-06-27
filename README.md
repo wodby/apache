@@ -7,14 +7,14 @@
 
 ## Docker Images
 
-Images are built via [Travis CI](https://travis-ci.org/wodby/php) and published on [Docker Hub](https://hub.docker.com/r/wodby/php). 
+Images are built via [Travis CI](https://travis-ci.org/wodby/apache) and published on [Docker Hub](https://hub.docker.com/r/wodby/apache). 
 
 ## Versions
 
 | Apache version (link to Dockerfile) | Alpine Linux version |
 | -------------------------------- | -------------------- |
-| [2.2.32](https://github.com/wodby/php/tree/master/2.2/Dockerfile) | 3.4 |  
-| [2.4.26](https://github.com/wodby/php/tree/master/2.4/Dockerfile) | 3.6 |  
+| [2.2.32](https://github.com/wodby/apache/tree/master/2.2/Dockerfile) | 3.4 |  
+| [2.4.26](https://github.com/wodby/apache/tree/master/2.4/Dockerfile) | 3.6 |  
 
 ## Environment Variables 
 
