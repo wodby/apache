@@ -1,4 +1,4 @@
-# Apache HTTP server docker container image
+# Apache HTTP Server Docker Container Image
 
 [![Build Status](https://travis-ci.org/wodby/apache.svg?branch=master)](https://travis-ci.org/wodby/apache)
 [![Docker Pulls](https://img.shields.io/docker/pulls/wodby/apache.svg)](https://hub.docker.com/r/wodby/apache)
@@ -11,8 +11,8 @@ Images are built via [Travis CI](https://travis-ci.org/wodby/apache) and publish
 
 ## Versions
 
-| Apache version (link to Dockerfile) | Alpine Linux version |
-| -------------------------------- | -------------------- |
+| Apache | Alpine Linux |
+| ------ | ------------ |
 | [2.2.32](https://github.com/wodby/apache/tree/master/2.2/Dockerfile) | 3.4 |  
 | [2.4.26](https://github.com/wodby/apache/tree/master/2.4/Dockerfile) | 3.6 |  
 
