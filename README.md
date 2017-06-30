@@ -20,7 +20,6 @@ Images are built via [Travis CI](https://travis-ci.org/wodby/apache) and publish
 
 | Variable | Default Value | Description |
 | -------- | ------------- | ----------- |
-| APACHE_ACCESS_FILE_NAME            | .htaccess                                    | |
 | APACHE_HOSTNAME_LOOKUPS            | Off                                          | |
 | APACHE_KEEP_ALIVE                  | On                                           | |
 | APACHE_KEEP_ALIVE_TIMEOUT          | 5                                            | |
@@ -38,42 +37,10 @@ Images are built via [Travis CI](https://travis-ci.org/wodby/apache) and publish
 | APACHE_TIMEOUT                     | 60                                           | |
 | APACHE_USE_CANONICAL_NAME          | Off                                          | |
 
-## Enabled Modules
+## Enabled Apache Modules
 
-| Variable | 2.4 | 2.2 |
-| -------- | --- | --- |
-| mod_access_compat   |  | - |
-| mod_alias           |  |   |
-| mod_auth_basic      |  |   |
-| mod_authn_file      |  |   |
-| mod_authn_core      |  | - |
-| mod_authz_core      |  | - |
-| mod_authz_groupfile |  |   |
-| mod_authz_host      |  |   |
-| mod_authz_user      |  |   |
-| mod_autoindex       |  |   |
-| mod_deflate         |  |   |
-| mod_dir             |  |   |
-| mod_env             |  |   |
-| mod_expires         |  |   |
-| mod_filter          |  |   |
-| mod_headers         |  |   |
-| mod_http2           |  | - |
-| mod_ldap            |  |   |
-| mod_log_config      |  |   |
-| mod_log_debug       |  | - |
-| mod_mime            |  |   |
-| mod_negotiation     |  |   |
-| mod_reqtimeout      |  |   |
-| mod_rewrite         |  |   |
-| mod_proxy_fcgi      |  | - |
-| mod_proxy           |  |   |
-| mod_proxy_http2     |  | - |
-| mod_setenvif        |  |   |
-| mod_ssl             |  |   |
-| mod_status          |  |   |
-| mod_unixd           |  | - |
-| mod_version         |  |   |
+* [2.4](https://raw.githubusercontent.com/wodby/apache/master/2.4/tests/apache_modules)
+* [2.2](https://raw.githubusercontent.com/wodby/apache/master/2.2/tests/apache_modules)
 
 ## Actions
 
@@ -89,7 +56,3 @@ default params values:
     max_try 1
     wait_seconds 1
 ```
-
-## Deployment
-
-Deploy Apache to your own server via [![Wodby](https://www.google.com/s2/favicons?domain=wodby.com) Wodby](https://wodby.com).

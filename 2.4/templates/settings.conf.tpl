@@ -42,7 +42,7 @@ UseCanonicalName {{ getenv "APACHE_USE_CANONICAL_NAME" "Off" }}
 # for additional configuration directives.  See also the AllowOverride
 # directive.
 #
-AccessFileName {{ getenv "APACHE_ACCESS_FILE_NAME" ".htaccess" }}
+AccessFileName .htaccess
 
 #
 # ServerTokens
