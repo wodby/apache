@@ -1,4 +1,4 @@
-FROM httpd:2.2.34
+FROM wodby/httpd:2.2.34
 
 ENV GOTPL_VER 0.1.5
 ENV GOTPL_URL https://github.com/wodby/gotpl/releases/download/${GOTPL_VER}/gotpl-alpine-linux-amd64-${GOTPL_VER}.tar.gz
