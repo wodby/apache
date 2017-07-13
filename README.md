@@ -13,8 +13,8 @@ Images are built via [Travis CI](https://travis-ci.org/wodby/apache) and publish
 
 | Apache | Alpine Linux |
 | ------ | ------------ |
-| [2.2.32](https://github.com/wodby/apache/tree/master/2.2/Dockerfile) | 3.4 |  
-| [2.4.26](https://github.com/wodby/apache/tree/master/2.4/Dockerfile) | 3.6 |  
+| [2.2.34](https://github.com/wodby/apache/tree/master/2.2/Dockerfile) | 3.4 |  
+| [2.4.27](https://github.com/wodby/apache/tree/master/2.4/Dockerfile) | 3.6 |  
 
 ## Environment Variables 
 
