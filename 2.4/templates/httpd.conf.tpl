@@ -242,7 +242,7 @@ LogLevel {{ getenv "APACHE_LOG_LEVEL" "warn" }}
     # define per-<VirtualHost> access logfiles, transactions will be
     # logged therein and *not* in this file.
     #
-    CustomLog /proc/self/fd/1 common
+    CustomLog /proc/self/fd/1 common env=!dontlog
 
     #
     # If you prefer a logfile with access, agent, and referer information

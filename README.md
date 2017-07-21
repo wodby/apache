@@ -24,6 +24,7 @@ Images are built via [Travis CI](https://travis-ci.org/wodby/apache) and publish
 | APACHE_KEEP_ALIVE                  | On                                           | |
 | APACHE_KEEP_ALIVE_TIMEOUT          | 5                                            | |
 | APACHE_LOG_LEVEL                   | warn                                         | |
+| APACHE_ENABLE_HEALTHZ_LOGS         |                                              | |
 | APACHE_MAX_KEEP_ALIVE_REQUESTS     | 100                                          | |
 | APACHE_MPM_EVENT_SERVER_LIMIT      | 16                                           | |
 | APACHE_MPM_EVENT_MAX_CLIENTS       | 400                                          | |
