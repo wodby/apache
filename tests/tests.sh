@@ -16,12 +16,16 @@ echo -n "Checking Apache version... "
 httpd -v | grep -q "Server version: Apache\/2.4.*"
 echo "OK"
 
-httpd -M > /tmp/apache_modules
+httpd -M > ~/apache_modules
 echo -n "Checking Apache modules... "
 
-if ! cmp -s /tmp/apache_modules /tests/apache_modules; then
+# 2.2 or 2.4
+apache_ver="${HTTPD_VER:0:3}"
+cp "/tests/apache_modules_${apache_ver}" ~/expected_modules
+
+if ! cmp -s ~/apache_modules ~/expected_modules; then
     echo "Error. Apache modules are not identical."
-    diff /tmp/apache_modules /tests/apache_modules
+    diff ~/apache_modules ~/expected_modules
     exit 1
 fi
 
