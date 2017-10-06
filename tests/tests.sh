@@ -13,7 +13,7 @@ curl -s apache | grep -q "It works!"
 echo "OK"
 
 echo -n "Checking Apache version... "
-httpd -v | grep -q "Server version: Apache\/2.4.*"
+httpd -v | grep -q "Server version: Apache\/${HTTPD_VER}"
 echo "OK"
 
 httpd -M > ~/apache_modules
