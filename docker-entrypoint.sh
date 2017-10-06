@@ -7,16 +7,17 @@ if [[ -n "${DEBUG}" ]]; then
 fi
 
 function exec_tpl {
-    # 2.2 or 2.4
-    apache_ver="${HTTPD_VER:0:3}"
-
-    if [[ -f "/etc/gotpl/${apache_ver}/$1" ]]; then
-        gotpl "/etc/gotpl/${apache_ver}/$1" > "$2"
+    if [[ -f "/etc/gotpl/$1" ]]; then
+        gotpl "/etc/gotpl/$1" > "$2"
     fi
 }
 
-exec_tpl "httpd.conf.tpl"  "${APACHE_DIR}/conf/httpd.conf"
-exec_tpl "settings.conf.tpl" "${APACHE_DIR}/conf/conf.d/settings.conf"
+# 2.2 or 2.4
+apache_ver="${HTTPD_VER:0:3}"
+
+exec_tpl "${apache_ver}/httpd.conf.tpl"  "${APACHE_DIR}/conf/httpd.conf"
+exec_tpl "${apache_ver}/settings.conf.tpl" "${APACHE_DIR}/conf/conf.d/settings.conf"
+
 exec_tpl "vhost.conf.tpl" "${APACHE_DIR}/conf/conf.d/vhost.conf"
 exec_tpl "healthz.conf.tpl" "${APACHE_DIR}/conf/healthz.conf"
 
