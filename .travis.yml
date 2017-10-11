@@ -19,15 +19,15 @@ script:
   - make && make test
 
 after_success: |
-  if [ "$TRAVIS_PULL_REQUEST" == "false" ] && ([ "$TRAVIS_BRANCH" == "master" ] || [ -n "$TRAVIS_TAG" ]); then
-    docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+  if [[ "${TRAVIS_PULL_REQUEST}" == "false" && ("${TRAVIS_BRANCH}" == "master"  || -n "${TRAVIS_TAG}") ]]; then
+    docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}"
     make release
 
-    if [ -n "$TRAVIS_TAG" ]; then
-      make release TAG="$TAG-$TRAVIS_TAG"
+    if [[ -n "${TRAVIS_TAG}" ]]; then
+      make release TAG="${TAG}-${TRAVIS_TAG}"
     fi
 
-    if [ "$TAG" == "$LATEST_TAG" ]; then
-      make release TAG=latest
+    if [[ "${TAG}" == "${LATEST_TAG}" ]]; then
+      make release TAG="latest"
     fi
   fi
