@@ -1,6 +1,6 @@
 -include env_make
 
-HTTPD_VER ?= 2.4.28
+HTTPD_VER ?= 2.4.29
 TAG ?= 2.4
 
 REPO = wodby/apache

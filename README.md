@@ -16,7 +16,7 @@ For better reliability we release images with stability tags (`wodby/apache:2.4-
 
 | Image tag (Dockerfile)                                                 | Apache |
 | ---------------------------------------------------------------------- | ------ |
-| [2.4 (latest)](https://github.com/wodby/apache/tree/master/Dockerfile) | 2.4.28 |
+| [2.4 (latest)](https://github.com/wodby/apache/tree/master/Dockerfile) | 2.4.29 |
 | [2.2](https://github.com/wodby/apache/tree/master/Dockerfile)          | 2.2.34 |
 
 ## Environment Variables 
