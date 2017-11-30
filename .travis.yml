@@ -8,7 +8,7 @@ env:
     - DOCKER_VERSION=17.06.2
     - LATEST_TAG=2.4
   matrix:
-    - TAG=2.4 HTTPD_VER=2.4.29
+    - TAG=2.4
     - TAG=2.2 HTTPD_VER=2.2.34
 
 install:
@@ -21,16 +21,19 @@ script:
 after_success: |
   if [[ "${TRAVIS_PULL_REQUEST}" == "false" && ("${TRAVIS_BRANCH}" == "master"  || -n "${TRAVIS_TAG}") ]]; then
     docker login -u "${DOCKER_USERNAME}" -p "${DOCKER_PASSWORD}"
-    make release
 
     if [[ -n "${TRAVIS_TAG}" ]]; then
-      make release TAG="${TAG}-${TRAVIS_TAG}"
-    elif [[ "${TAG}" == "${LATEST_TAG}" ]]; then
+      export STABILITY_TAG="${TRAVIS_TAG}"
+    fi
+
+    make release
+
+    if [[ "${TAG}" == "${LATEST_TAG}" ]]; then
       make release TAG="latest"
     fi
   fi
 
 notifications:
   slack:
-    on_success: always
+    on_failure: never
     secure: "I0vAuYAfdqyQ8OPD4pxwxk+idcI64B5QTasgS3DsGOt83xIuX87gSpddRnqcq4Neaaqeon/7baPZIewCpI8JaE02ulmBjp5SWaN5lN8S/uYY4hc7J1ZicLhns6QroUKDEWDxVa3SjrSM4VlOz3pB8ZjPqUd0+B5pZSViobcC5E9O8b2rC6qGE5i/A1dJEmjami+jaWLmwidJBXy7DndjyIp8ntA7BcZMmPHj/X0wTIThDF3117goyxarlK1Up4E5NLWmvYKY3uZn3WiSj/hysHgWU3VikE9oG6FhqZyoYF2KWl0dgQ0LbmpRQRWU93uS7dmPdzPPT3grFbwSdUhZIsU944qyP7/NO0LTtQvEnzHjFvHwILhHJHh6zuWnUbOQc10IUFWiEIa8bcQOm3Q2/ks8etWED/qD6s8vI7X4ZNpTRTG7LBYSlDVZZyCRGUUrMlrFbWAAL4ay+57n/FTD+ZejnlOzaC2TN7ZZnXWEXXaQkGGa8KbotiyYQWg9tcxydrBy6hKxXUQGngsYzdpDJN8SBO6CAcAnRmW+BTk+LJ/5MnOOZpm0/1udO/Q6OvDYWByIIAeqzopZakvTKbPEH0thTwDz+0vqGajXyiwFThMi4BwIKX82W467DalHhNfuxYbkN3UVVwAYShILdjyQtAza1PAaVO8PSjFYjl8+xlE="

@@ -12,12 +12,12 @@
 * [Travis CI builds](https://travis-ci.org/wodby/apache) 
 * [Docker Hub](https://hub.docker.com/r/wodby/apache) 
 
-For better reliability we release images with stability tags (`wodby/apache:2.4-X.X.X`) which correspond to git tags. We **strongly recommend** using images only with stability tags. Below listed basic tags:
+Supported tags and respective `Dockerfile` links:
 
-| Image tag (Dockerfile)                                                 | Apache |
-| ---------------------------------------------------------------------- | ------ |
-| [2.4 (latest)](https://github.com/wodby/apache/tree/master/Dockerfile) | 2.4.29 |
-| [2.2](https://github.com/wodby/apache/tree/master/Dockerfile)          | 2.2.34 |
+* `2.4`, `latest` [_(Dockerfile)_](https://github.com/wodby/apache/tree/master/Dockerfile)
+* `2.2` [_(Dockerfile)_](https://github.com/wodby/apache/tree/master/Dockerfile)
+
+For better reliability we additionally release images with stability tags (`wodby/apache:2.4-X.X.X`) which correspond to [git tags](https://github.com/wodby/apache/releases). We **strongly recommend** using images only with stability tags. 
 
 ## Environment Variables 
 

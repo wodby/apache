@@ -1,10 +1,16 @@
 -include env_make
 
 HTTPD_VER ?= 2.4.29
-TAG ?= 2.4
+TAG ?= $(HTTPD_VER)
 
 REPO = wodby/apache
 NAME = apache-$(HTTPD_VER)
+
+ifneq ($(STABILITY_TAG),)
+ifneq ($(TAG),latest)
+    override TAG := $(TAG)-$(STABILITY_TAG)
+endif
+endif
 
 .PHONY: build test push shell run start stop logs clean release
 
