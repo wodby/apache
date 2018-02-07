@@ -19,9 +19,7 @@ echo "OK"
 httpd -M > ~/apache_modules
 echo -n "Checking Apache modules... "
 
-# 2.2 or 2.4
-apache_ver="${HTTPD_VER:0:3}"
-cp "/tests/apache_modules_${apache_ver}" ~/expected_modules
+cp /tests/apache_modules ~/expected_modules
 
 if ! cmp -s ~/apache_modules ~/expected_modules; then
     echo "Error. Apache modules are not identical."
