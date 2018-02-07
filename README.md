@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/wodby/apache.svg?branch=master)](https://travis-ci.org/wodby/apache)
 [![Docker Pulls](https://img.shields.io/docker/pulls/wodby/apache.svg)](https://hub.docker.com/r/wodby/apache)
 [![Docker Stars](https://img.shields.io/docker/stars/wodby/apache.svg)](https://hub.docker.com/r/wodby/apache)
-[![Wodby Slack](http://slack.wodby.com/badge.svg)](http://slack.wodby.com)
+[![Docker Layers](https://images.microbadger.com/badges/image/wodby/apache.svg)](https://microbadger.com/images/wodby/apache)
 
 ## Docker Images
 
