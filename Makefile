@@ -1,10 +1,12 @@
 -include env_make
 
 HTTPD_VER ?= 2.4.29
-TAG ?= $(HTTPD_VER)
+HTTPD_MINOR_VER ?= $(shell echo "${HTTPD_VER}" | grep -oE '^[0-9]+\.[0-9]+')
+
+TAG ?= $(HTTPD_MINOR_VER)
 
 REPO = wodby/apache
-NAME = apache-$(HTTPD_VER)
+NAME = apache-$(HTTPD_MINOR_VER)
 
 ifneq ($(STABILITY_TAG),)
     ifneq ($(TAG),latest)

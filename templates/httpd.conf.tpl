@@ -105,8 +105,8 @@ LoadModule version_module modules/mod_version.so
 # It is usually good practice to create a dedicated user and group for
 # running httpd, as with most system services.
 #
-User daemon
-Group daemon
+User {{ getenv "APACHE_USER" "apache" }}
+Group {{ getenv "APACHE_GROUP" "apache" }}
 
 </IfModule>
 

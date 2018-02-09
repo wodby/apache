@@ -24,11 +24,12 @@ Supported tags and respective `Dockerfile` links:
 
 | Variable                             | Default Value                                    | Description |
 | ------------------------------------ | ------------------------------------------------ | ----------- |
+| `APACHE_ENABLE_HEALTHZ_LOGS`         |                                                  |             |
+| `APACHE_GROUP`                       | `apache`                                         |             |
 | `APACHE_HOSTNAME_LOOKUPS`            | `Off`                                            |             |
 | `APACHE_KEEP_ALIVE`                  | `On`                                             |             |
 | `APACHE_KEEP_ALIVE_TIMEOUT`          | `5`                                              |             |
 | `APACHE_LOG_LEVEL`                   | `warn`                                           |             |
-| `APACHE_ENABLE_HEALTHZ_LOGS`         |                                                  |             |
 | `APACHE_MAX_KEEP_ALIVE_REQUESTS`     | `100`                                            |             |
 | `APACHE_MPM_EVENT_SERVER_LIMIT`      | `16`                                             |             |
 | `APACHE_MPM_EVENT_MAX_CLIENTS`       | `400`                                            |             |
@@ -41,6 +42,7 @@ Supported tags and respective `Dockerfile` links:
 | `APACHE_SERVER_SIGNATURE`            | `Off`                                            |             |
 | `APACHE_TIMEOUT`                     | `60`                                             |             |
 | `APACHE_USE_CANONICAL_NAME`          | `Off`                                            |             |
+| `APACHE_USER`                        | `apache`                                         |             |
 
 ## [Enabled Modules](https://raw.githubusercontent.com/wodby/apache/master/tests/apache_modules)
 
