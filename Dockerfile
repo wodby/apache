@@ -5,8 +5,11 @@ FROM wodby/httpd:${HTTPD_VER}
 ARG HTTPD_VER
 
 ENV HTTPD_VER="${HTTPD_VER}" \
-    HTML_DIR="/var/www/html" \
-    APACHE_DIR="/usr/local/apache2"
+    APP_ROOT="/var/www/html" \
+    APACHE_DIR="/usr/local/apache2" \
+    FILES_DIR="/mnt/files" \
+    GIT_USER_EMAIL="wodby@example.com" \
+    GIT_USER_NAME="wodby"
 
 RUN set -ex; \
     \
@@ -14,22 +17,48 @@ RUN set -ex; \
     addgroup -S apache; \
     adduser -S -D -H -h /usr/local/apache2 -s sbin/nologin -G apache apache; \
     \
+	addgroup -g 1000 -S wodby; \
+	adduser -u 1000 -D -S -s /bin/bash -G wodby wodby; \
+	sed -i '/^wodby/s/!/*/' /etc/shadow; \
+	echo "PS1='\w\$ '" >> /home/wodby/.bashrc; \
+    \
     apk --update --no-cache -t .apache-rundeps add \
+        git \
         make \
+        nghttp2 \
+        openssh-client \
         sudo; \
     \
-    mkdir -p "${HTML_DIR}" /usr/local/apache2/conf/conf.d; \
-    chown -R apache:apache "${HTML_DIR}" /usr/local/apache2; \
+    mkdir -p \
+        "${APP_ROOT}" \
+        "${FILES_DIR}" \
+        /home/wodby/.ssh \
+        /usr/local/apache2/conf/conf.d; \
+    \
+    chown -R wodby:wodby \
+        "${APP_ROOT}" \
+        "${FILES_DIR}" \
+        /home/wodby/.ssh \
+        /usr/local/apache2; \
+    \
     rm -f /usr/local/apache2/logs/httpd.pid; \
     \
-    echo 'apache ALL=(root) NOPASSWD: /usr/local/apache2/bin/httpd' > /etc/sudoers.d/apache; \
+    # Script to fix volumes permissions via sudo.
+    echo "chown wodby:wodby ${APP_ROOT} ${FILES_DIR}" > /usr/local/bin/fix-volumes-permissions.sh; \
+    chmod +x /usr/local/bin/fix-volumes-permissions.sh; \
+    \
+    { \
+        echo -n 'wodby ALL=(root) NOPASSWD:SETENV: ' ; \
+        echo -n '/usr/local/bin/fix-volumes-permissions.sh, ' ; \
+        echo '/usr/local/apache2/bin/httpd' ; \
+    } | tee /etc/sudoers.d/wodby; \
     \
     # Cleanup
     rm -rf /var/cache/apk/*
 
-USER apache
+USER wodby
 
-WORKDIR $HTML_DIR
+WORKDIR $APP_ROOT
 
 COPY actions /usr/local/bin
 COPY templates /etc/gotpl/

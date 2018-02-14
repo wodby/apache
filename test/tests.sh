@@ -6,24 +6,24 @@ if [[ -n "${DEBUG}" ]]; then
     set -x
 fi
 
-make check-ready max_try=10 host=apache -f /usr/local/bin/actions.mk
+echo "It works!" > /var/www/html/index.html
 
 echo -n "Checking Apache response... "
-curl -s apache | grep -q "It works!"
+curl -s localhost | grep -q "It works!"
 echo "OK"
+
+rm /var/www/html/index.html
 
 echo -n "Checking Apache version... "
 httpd -v | grep -q "Server version: Apache\/${HTTPD_VER}"
 echo "OK"
 
-httpd -M > ~/apache_modules
+httpd -M > /tmp/apache_modules
 echo -n "Checking Apache modules... "
 
-cp /tests/apache_modules ~/expected_modules
-
-if ! cmp -s ~/apache_modules ~/expected_modules; then
+if ! cmp -s /tmp/apache_modules /home/wodby/apache_modules; then
     echo "Error. Apache modules are not identical."
-    diff ~/apache_modules ~/expected_modules
+    diff /tmp/apache_modules /home/wodby/apache_modules
     exit 1
 fi
 

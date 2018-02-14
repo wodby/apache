@@ -27,6 +27,7 @@ Supported tags and respective `Dockerfile` links:
 | `APACHE_ENABLE_HEALTHZ_LOGS`         |                                                  |             |
 | `APACHE_GROUP`                       | `apache`                                         |             |
 | `APACHE_HOSTNAME_LOOKUPS`            | `Off`                                            |             |
+| `APACHE_HTTP2`                       |                                                  |             |
 | `APACHE_KEEP_ALIVE`                  | `On`                                             |             |
 | `APACHE_KEEP_ALIVE_TIMEOUT`          | `5`                                              |             |
 | `APACHE_LOG_LEVEL`                   | `warn`                                           |             |
@@ -50,17 +51,22 @@ Supported tags and respective `Dockerfile` links:
 
 * [wodby/php-apache](https://github.com/wodby/php-apache)
 
-## Actions
+## Orchestration actions
 
 Usage:
 ```
 make COMMAND [params ...]
 
 commands:
+    git-clone [url branch]
+    git-checkout [target is_hash]
     check-ready [host max_try wait_seconds]
  
 default params values:
     host localhost
     max_try 1
     wait_seconds 1
+    delay_seconds 0
+    is_hash 0
+    branch ""        
 ```

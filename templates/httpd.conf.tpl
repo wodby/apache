@@ -157,40 +157,6 @@ ServerName localhost
 #
 
 #
-# DocumentRoot: The directory out of which you will serve your
-# documents. By default, all requests are taken from this directory, but
-# symbolic links and aliases may be used to point to other locations.
-#
-DocumentRoot "/usr/local/apache2/htdocs"
-<Directory "/usr/local/apache2/htdocs">
-    #
-    # Possible values for the Options directive are "None", "All",
-    # or any combination of:
-    #   Indexes Includes FollowSymLinks SymLinksifOwnerMatch ExecCGI MultiViews
-    #
-    # Note that "MultiViews" must be named *explicitly* --- "Options All"
-    # doesn't give it to you.
-    #
-    # The Options directive is both complicated and important.  Please see
-    # http://httpd.apache.org/docs/2.4/mod/core.html#options
-    # for more information.
-    #
-    Options Indexes FollowSymLinks
-
-    #
-    # AllowOverride controls what directives may be placed in .htaccess files.
-    # It can be "All", "None", or any combination of the keywords:
-    #   AllowOverride FileInfo AuthConfig Limit
-    #
-    AllowOverride None
-
-    #
-    # Controls who can get stuff from this server.
-    #
-    Require all granted
-</Directory>
-
-#
 # DirectoryIndex: sets the file that Apache will serve if a directory
 # is requested.
 #
