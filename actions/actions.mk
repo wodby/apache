@@ -20,11 +20,11 @@ default: check-ready
 
 git-clone:
 	$(call check_defined, url)
-	git-clone.sh $(url) $(branch)
+	git_clone $(url) $(branch)
 
 git-checkout:
 	$(call check_defined, target)
-	git-checkout.sh $(target) $(is_hash)
+	git_checkout $(target) $(is_hash)
 
 check-ready:
 	wait-for.sh "$(command)" $(service) $(host) $(max_try) $(wait_seconds) $(delay_seconds)

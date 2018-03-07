@@ -22,7 +22,7 @@ build:
 	docker build -t $(REPO):$(TAG) --build-arg HTTPD_VER=$(HTTPD_VER) ./
 
 test:
-	IMAGE=$(REPO):$(TAG) ./test.sh
+	cd ./test && IMAGE=$(REPO):$(TAG) ./run
 
 push:
 	docker push $(REPO):$(TAG)
