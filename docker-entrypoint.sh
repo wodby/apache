@@ -36,7 +36,7 @@ process_templates() {
     exec_tpl "healthz.conf.tpl" "${APACHE_DIR}/conf/healthz.conf"
 }
 
-sudo fix-volumes-permissions.sh
+sudo init_volumes
 
 init_git
 init_ssh_client

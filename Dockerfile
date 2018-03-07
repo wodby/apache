@@ -44,12 +44,12 @@ RUN set -ex; \
     rm -f /usr/local/apache2/logs/httpd.pid; \
     \
     # Script to fix volumes permissions via sudo.
-    echo "chown wodby:wodby ${APP_ROOT} ${FILES_DIR}" > /usr/local/bin/fix-volumes-permissions.sh; \
-    chmod +x /usr/local/bin/fix-volumes-permissions.sh; \
+    echo "find ${APP_ROOT} ${FILES_DIR} -maxdepth 0 -uid 0 -type d -exec chown wodby:wodby {} +" > /usr/local/bin/init_volumes; \
+    chmod +x /usr/local/bin/init_volumes; \
     \
     { \
         echo -n 'wodby ALL=(root) NOPASSWD:SETENV: ' ; \
-        echo -n '/usr/local/bin/fix-volumes-permissions.sh, ' ; \
+        echo -n '/usr/local/bin/init_volumes, ' ; \
         echo '/usr/local/apache2/bin/httpd' ; \
     } | tee /etc/sudoers.d/wodby; \
     \
