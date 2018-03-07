@@ -23,6 +23,7 @@ RUN set -ex; \
 	echo "PS1='\w\$ '" >> /home/wodby/.bashrc; \
     \
     apk --update --no-cache -t .apache-rundeps add \
+        findutils \
         git \
         make \
         nghttp2 \
