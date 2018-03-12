@@ -45,7 +45,7 @@ Supported tags and respective `Dockerfile` links:
 | `APACHE_USE_CANONICAL_NAME`          | `Off`                                            |             |
 | `APACHE_USER`                        | `apache`                                         |             |
 
-## [Enabled Modules](https://raw.githubusercontent.com/wodby/apache/master/tests/apache_modules)
+## [Enabled Modules](https://github.com/wodby/apache/blob/master/test/apache_modules)
 
 ## Images based on `wodby/apache`
 
