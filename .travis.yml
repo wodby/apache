@@ -10,7 +10,10 @@ env:
     - TAG=2.4 HTTPD_VER=2.4.29 EXTRA_TAG=2
 
 script:
-  - make && make test
+  - set -e
+  - make compare-orig-configs
+  - make
+  - make test
 
 after_success:
   - bash "${TRAVIS_BUILD_DIR}/travis_release"

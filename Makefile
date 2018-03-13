@@ -45,4 +45,7 @@ logs:
 clean:
 	-docker rm -f $(NAME)
 
+compare-orig-configs:
+	./compare_orig_configs $(HTTPD_VER)
+
 release: build push
