@@ -31,7 +31,6 @@ init_git() {
 
 process_templates() {
     exec_tpl "httpd.conf.tpl"  "${APACHE_DIR}/conf/httpd.conf"
-    exec_tpl "settings.conf.tpl" "${APACHE_DIR}/conf/conf.d/settings.conf"
     exec_tpl "vhost.conf.tpl" "${APACHE_DIR}/conf/conf.d/vhost.conf"
     exec_tpl "healthz.conf.tpl" "${APACHE_DIR}/conf/healthz.conf"
 }

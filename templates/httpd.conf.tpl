@@ -104,4 +104,28 @@ SSLRandomSeed startup builtin
 SSLRandomSeed connect builtin
 </IfModule>
 
+Timeout {{ getenv "APACHE_TIMEOUT" "60" }}
+KeepAlive {{ getenv "APACHE_KEEP_ALIVE" "On" }}
+MaxKeepAliveRequests {{ getenv "APACHE_MAX_KEEP_ALIVE_REQUESTS" "100" }}
+KeepAliveTimeout {{ getenv "APACHE_KEEP_ALIVE_TIMEOUT" "5" }}
+UseCanonicalName {{ getenv "APACHE_USE_CANONICAL_NAME" "Off" }}
+AccessFileName .htaccess
+
+ServerTokens {{ getenv "APACHE_SERVER_TOKENS" "Full" }}
+
+ServerSignature {{ getenv "APACHE_SERVER_SIGNATURE" "Off" }}
+HostnameLookups {{ getenv "APACHE_HOSTNAME_LOOKUPS" "Off" }}
+
+<IfModule reqtimeout_module>
+  RequestReadTimeout {{ getenv "APACHE_REQUEST_READ_TIMEOUT" "header=20-40,MinRate=500 body=20,MinRate=500" }}
+</IfModule>
+
+<IfModule event.c>
+ServerLimit           {{ getenv "APACHE_MPM_EVENT_SERVER_LIMIT" "16" }}
+MaxClients            {{ getenv "APACHE_MPM_EVENT_MAX_CLIENTS" "400" }}
+StartServers          {{ getenv "APACHE_MPM_EVENT_START_SERVERS" "3" }}
+ThreadsPerChild       {{ getenv "APACHE_MPM_EVENT_THREADS_PER_CHILD" "25" }}
+ThreadLimit           {{ getenv "APACHE_MPM_EVENT_THREAD_LIMIT" "64" }}
+</IfModule>
+
 Include {{ getenv "APACHE_INCLUDE_CONF" "conf/conf.d/*.conf" }}
