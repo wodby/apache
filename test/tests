@@ -15,7 +15,7 @@ echo "OK"
 rm /var/www/html/index.html
 
 echo -n "Checking Apache version... "
-httpd -v | grep -q "Server version: Apache\/${HTTPD_VER}"
+httpd -v | grep -q "Server version: Apache\/${APACHE_VER}"
 echo "OK"
 
 httpd -M > /tmp/apache_modules

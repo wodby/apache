@@ -6,9 +6,9 @@ if [[ -n "${DEBUG}" ]]; then
     set -x
 fi
 
-httpd_ver=$1
+apache_ver=$1
 
-url="https://raw.githubusercontent.com/apache/httpd/${httpd_ver}/docs/conf/httpd.conf.in"
+url="https://raw.githubusercontent.com/apache/httpd/${apache_ver}/docs/conf/httpd.conf.in"
 
 array=(
     "./orig/httpd.conf::${url}"

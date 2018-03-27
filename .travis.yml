@@ -7,7 +7,7 @@ env:
   global:
     - LATEST_TAG=2.4
   matrix:
-    - TAG=2.4 HTTPD_VER=2.4.29 EXTRA_TAG=2
+    - TAG=2.4 APACHE_VER=2.4.33 EXTRA_TAG=2
 
 script:
   - set -e
@@ -16,4 +16,4 @@ script:
   - make test
 
 after_success:
-  - bash "${TRAVIS_BUILD_DIR}/travis_release"
+  - . "${TRAVIS_BUILD_DIR}/travis_release"

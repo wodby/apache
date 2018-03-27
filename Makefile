@@ -1,12 +1,12 @@
 -include env_make
 
-HTTPD_VER ?= 2.4.29
-HTTPD_MINOR_VER ?= $(shell echo "${HTTPD_VER}" | grep -oE '^[0-9]+\.[0-9]+')
+APACHE_VER ?= 2.4.33
+APACHE_VER_MINOR ?= $(shell echo "${APACHE_VER}" | grep -oE '^[0-9]+\.[0-9]+')
 
-TAG ?= $(HTTPD_MINOR_VER)
+TAG ?= $(APACHE_VER_MINOR)
 
 REPO = wodby/apache
-NAME = apache-$(HTTPD_MINOR_VER)
+NAME = apache-$(APACHE_VER_MINOR)
 
 ifneq ($(STABILITY_TAG),)
     ifneq ($(TAG),latest)
@@ -19,7 +19,7 @@ endif
 default: build
 
 build:
-	docker build -t $(REPO):$(TAG) --build-arg HTTPD_VER=$(HTTPD_VER) ./
+	docker build -t $(REPO):$(TAG) --build-arg APACHE_VER=$(APACHE_VER) ./
 
 test:
 	cd ./test && IMAGE=$(REPO):$(TAG) ./run
@@ -46,6 +46,6 @@ clean:
 	-docker rm -f $(NAME)
 
 compare-orig-configs:
-	./compare_orig_configs $(HTTPD_VER)
+	./compare_orig_configs $(APACHE_VER)
 
 release: build push

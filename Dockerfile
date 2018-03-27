@@ -1,10 +1,10 @@
-ARG HTTPD_VER
+ARG APACHE_VER
 
-FROM wodby/httpd:${HTTPD_VER}
+FROM wodby/httpd:${APACHE_VER}
 
-ARG HTTPD_VER
+ARG APACHE_VER
 
-ENV HTTPD_VER="${HTTPD_VER}" \
+ENV APACHE_VER="${APACHE_VER}" \
     APP_ROOT="/var/www/html" \
     APACHE_DIR="/usr/local/apache2" \
     FILES_DIR="/mnt/files" \

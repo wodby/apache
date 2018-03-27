@@ -27,7 +27,7 @@ git-checkout:
 	git_checkout $(target) $(is_hash)
 
 check-ready:
-	wait-for.sh "$(command)" $(service) $(host) $(max_try) $(wait_seconds) $(delay_seconds)
+	wait_for "$(command)" $(service) $(host) $(max_try) $(wait_seconds) $(delay_seconds)
 
 check-live:
 	@echo "OK"
