@@ -1,6 +1,6 @@
 -include env_make
 
-APACHE_VER ?= 2.4.33
+APACHE_VER ?= 2.4.34
 APACHE_VER_MINOR ?= $(shell echo "${APACHE_VER}" | grep -oE '^[0-9]+\.[0-9]+')
 
 TAG ?= $(APACHE_VER_MINOR)
@@ -22,7 +22,7 @@ build:
 	docker build -t $(REPO):$(TAG) --build-arg APACHE_VER=$(APACHE_VER) ./
 
 test:
-	cd ./test && IMAGE=$(REPO):$(TAG) ./run
+	cd ./test && IMAGE=$(REPO):$(TAG) ./run.sh
 
 push:
 	docker push $(REPO):$(TAG)

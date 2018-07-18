@@ -16,7 +16,7 @@ run_action() {
 
 run_action apache check-ready max_try=10
 
-docker-compose exec apache tests
+docker-compose exec apache tests.sh
 
 # Git actions
 echo -n "Running git actions... "

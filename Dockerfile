@@ -61,7 +61,7 @@ USER wodby
 
 WORKDIR $APP_ROOT
 
-COPY actions /usr/local/bin
+COPY bin /usr/local/bin
 COPY templates /etc/gotpl/
 COPY docker-entrypoint.sh /
 

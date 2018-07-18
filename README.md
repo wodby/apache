@@ -7,7 +7,7 @@
 
 ## Docker Images
 
-!!! For better reliability we release images with stability tags (`wodby/apache:2.4-X.X.X`) which correspond to [git tags](https://github.com/wodby/apache/releases). We **STRONGLY RECOMMEND** using images only with stability tags. 
+❗️For better reliability we release images with stability tags (`wodby/apache:2.4-X.X.X`) which correspond to [git tags](https://github.com/wodby/apache/releases). We strongly recommend using images only with stability tags. 
 
 Overview:
 
@@ -18,7 +18,7 @@ Overview:
 
 Supported tags and respective `Dockerfile` links:
 
-* `2`, `2.4`, `latest` [_(Dockerfile)_](https://github.com/wodby/apache/tree/master/Dockerfile)
+* `2.4`, `2`, `latest` [_(Dockerfile)_](https://github.com/wodby/apache/tree/master/Dockerfile)
 
 ## Environment Variables 
 
