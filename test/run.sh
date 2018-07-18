@@ -6,8 +6,6 @@ if [[ -n "${DEBUG}" ]]; then
     set -x
 fi
 
-git_url=https://github.com/wodby/apache.git
-
 docker-compose up -d
 
 run_action() {
@@ -17,13 +15,6 @@ run_action() {
 run_action apache check-ready max_try=10
 
 docker-compose exec apache tests.sh
-
-# Git actions
-echo -n "Running git actions... "
-run_action apache git-clone url="${git_url}" branch=master
-run_action apache git-checkout target=develop
-echo "OK"
-
 docker-compose down
 
 cid="$(docker run -d -e APACHE_HTTP2=1 --name "apache" "${IMAGE}")"

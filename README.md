@@ -59,8 +59,6 @@ Usage:
 make COMMAND [params ...]
 
 commands:
-    git-clone [url branch]
-    git-checkout [target is_hash]
     check-ready [host max_try wait_seconds]
  
 default params values:
@@ -68,6 +66,4 @@ default params values:
     max_try 1
     wait_seconds 1
     delay_seconds 0
-    is_hash 0
-    branch ""        
 ```

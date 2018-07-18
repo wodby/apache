@@ -1,4 +1,4 @@
-.PHONY: git-clone git-checkout check-ready check-live
+.PHONY: check-ready check-live
 
 check_defined = \
     $(strip $(foreach 1,$1, \
@@ -13,18 +13,8 @@ wait_seconds ?= 1
 delay_seconds ?= 0
 command = curl -s -o /dev/null -I -w '%{http_code}' ${host}/.healthz | grep -q 204
 service = Apache
-is_hash ?= 0
-branch = ""
 
 default: check-ready
-
-git-clone:
-	$(call check_defined, url)
-	git_clone $(url) $(branch)
-
-git-checkout:
-	$(call check_defined, target)
-	git_checkout $(target) $(is_hash)
 
 check-ready:
 	wait_for "$(command)" $(service) $(host) $(max_try) $(wait_seconds) $(delay_seconds)

@@ -7,9 +7,7 @@ ARG APACHE_VER
 ENV APACHE_VER="${APACHE_VER}" \
     APP_ROOT="/var/www/html" \
     APACHE_DIR="/usr/local/apache2" \
-    FILES_DIR="/mnt/files" \
-    GIT_USER_EMAIL="wodby@example.com" \
-    GIT_USER_NAME="wodby"
+    FILES_DIR="/mnt/files"
 
 RUN set -ex; \
     \
@@ -24,22 +22,18 @@ RUN set -ex; \
     \
     apk --update --no-cache -t .apache-rundeps add \
         findutils \
-        git \
         make \
         nghttp2 \
-        openssh-client \
         sudo; \
     \
     mkdir -p \
         "${APP_ROOT}" \
         "${FILES_DIR}" \
-        /home/wodby/.ssh \
         /usr/local/apache2/conf/conf.d; \
     \
     chown -R wodby:wodby \
         "${APP_ROOT}" \
         "${FILES_DIR}" \
-        /home/wodby/.ssh \
         /usr/local/apache2; \
     \
     rm -f /usr/local/apache2/logs/httpd.pid; \
