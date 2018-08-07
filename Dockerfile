@@ -7,7 +7,9 @@ ARG APACHE_VER
 ENV APACHE_VER="${APACHE_VER}" \
     APP_ROOT="/var/www/html" \
     APACHE_DIR="/usr/local/apache2" \
-    FILES_DIR="/mnt/files"
+    FILES_DIR="/mnt/files" \
+    APACHE_VHOST_PRESET="html" \
+    APACHE_MPM="event"
 
 RUN set -ex; \
     \

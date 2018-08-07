@@ -22,7 +22,8 @@ build:
 	docker build -t $(REPO):$(TAG) --build-arg APACHE_VER=$(APACHE_VER) ./
 
 test:
-	cd ./test && IMAGE=$(REPO):$(TAG) ./run.sh
+	cd ./tests/basic && IMAGE=$(REPO):$(TAG) ./run.sh
+	cd ./tests/php && IMAGE=$(REPO):$(TAG) ./run.sh
 
 push:
 	docker push $(REPO):$(TAG)
@@ -46,6 +47,6 @@ clean:
 	-docker rm -f $(NAME)
 
 compare-orig-configs:
-	./compare_orig_configs $(APACHE_VER)
+	./check-configs.sh $(APACHE_VER)
 
 release: build push

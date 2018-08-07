@@ -35,6 +35,20 @@ LoadModule status_module modules/mod_status.so
 LoadModule unixd_module modules/mod_unixd.so
 LoadModule version_module modules/mod_version.so
 
+{{ $mpm := (getenv "APACHE_MPM") }}
+
+{{ if (eq $mpm "event") }}
+LoadModule mpm_event_module modules/mod_mpm_event.so
+{{ end }}
+
+{{ if (eq $mpm "prefork") }}
+LoadModule mpm_prefork_module modules/mod_mpm_prefork.so
+{{ end }}
+
+{{ if (eq $mpm "worker") }}
+LoadModule mpm_worker_module modules/mod_mpm_worker.so
+{{ end }}
+
 <IfModule unixd_module>
 
 User {{ getenv "APACHE_USER" "apache" }}

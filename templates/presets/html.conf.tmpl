@@ -1,0 +1,7 @@
+DirectoryIndex {{ getenv "APACHE_DIRECTORY_INDEX" "index.html" }}
+
+<Directory "{{ getenv "APACHE_DOCUMENT_ROOT" "/var/www/html" }}">
+    Options Indexes FollowSymLinks
+    AllowOverride None
+    Require all granted
+</Directory>
