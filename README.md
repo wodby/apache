@@ -10,7 +10,7 @@
 * [Enabled modules](#enabled-modules)
 * [Virtual host presets](#virtual-hosts-presets)
     * [HTML](#html)
-    * [PHP](#php)
+    * [PHP (FastCGI)](#php-fastcgi)
 * [Customization](#customization)
 * [Orchestration actions](#orchestration-actions)
 
@@ -71,19 +71,12 @@ By default will be used `html` virtual host preset, you can change it via env va
 
 This is the default preset.
 
-[Virtual host template](https://github.com/wodby/apache/blob/master/templates/presets/html.conf.tmpl)
+* [Preset template](https://github.com/wodby/apache/blob/master/templates/presets/html.conf.tmpl)
+* Usage: this preset selected by default
 
-```
-APACHE_VHOST_PRESET=html
-```
+### PHP (FastCGI)
 
-### PHP
-
-[Virtual host template](https://github.com/wodby/apache/blob/master/templates/presets/php.conf.tmpl)
-
-```
-APACHE_VHOST_PRESET=php
-```
+Additional environment variables for PHP preset:
 
 | Variable                         | Default Value   | Description |
 | -------------------------------- | --------------- | ----------- |
@@ -92,6 +85,9 @@ APACHE_VHOST_PRESET=php
 | `APACHE_DIRECTORY_INDEX`         | `index.php`     |             |
 | `APACHE_FCGI_PROXY_CONN_TIMEOUT` | `5`             |             |
 | `APACHE_FCGI_PROXY_TIMEOUT`      | `60`            |             |
+
+* [Preset template](https://github.com/wodby/apache/blob/master/templates/presets/php.conf.tmpl)
+* Usage: add `APACHE_VHOST_PRESET=php`, optionally modify `APACHE_BACKEND_HOST`
 
 ## Customization
 
