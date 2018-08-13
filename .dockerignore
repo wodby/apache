@@ -1,6 +1,7 @@
 tests
 .gitignore
 .travis.yml
+.httpd
 check-configs.sh
 README.md
 release.sh
