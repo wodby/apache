@@ -38,6 +38,7 @@ Supported tags and respective `Dockerfile` links:
 | `APACHE_HOSTNAME_LOOKUPS`            | `Off`                                            |             |
 | `APACHE_HTTP2`                       |                                                  |             |
 | `APACHE_INCLUDE_CONF`                | `conf/conf.d/*.conf`                             |             |
+| `APACHE_INDEXES_ENABLED`             |                                                  |             |
 | `APACHE_KEEP_ALIVE_TIMEOUT`          | `5`                                              |             |
 | `APACHE_KEEP_ALIVE`                  | `On`                                             |             |
 | `APACHE_LIMITED_ACCESS`              |                                                  |             |
