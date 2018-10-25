@@ -1,6 +1,6 @@
 -include env_make
 
-APACHE_VER ?= 2.4.35
+APACHE_VER ?= 2.4.37
 APACHE_VER_MINOR ?= $(shell echo "${APACHE_VER}" | grep -oE '^[0-9]+\.[0-9]+')
 
 TAG ?= $(APACHE_VER_MINOR)
