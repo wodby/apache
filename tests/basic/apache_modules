@@ -30,7 +30,6 @@ Loaded Modules:
  proxy_fcgi_module (shared)
  proxy_http2_module (shared)
  setenvif_module (shared)
- ssl_module (shared)
  status_module (shared)
  unixd_module (shared)
  version_module (shared)
