@@ -19,6 +19,7 @@ Loaded Modules:
  filter_module (shared)
  headers_module (shared)
  http2_module (shared)
+ include_module (shared)
  ldap_module (shared)
  log_config_module (shared)
  log_debug_module (shared)
