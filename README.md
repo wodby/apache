@@ -21,7 +21,7 @@
 Overview:
 
 * All images are based on Alpine Linux
-* Base image: [wodby/httpd](https://github.com/wodby/httpd)
+* Base image: [httpd](https://github.com/docker-library/httpd)
 * [Travis CI builds](https://travis-ci.org/wodby/apache) 
 * [Docker Hub](https://hub.docker.com/r/wodby/apache) 
 

@@ -1,6 +1,6 @@
 ARG APACHE_VER
 
-FROM wodby/httpd:${APACHE_VER}
+FROM httpd:${APACHE_VER}-alpine
 
 ARG APACHE_VER
 
@@ -23,6 +23,9 @@ RUN set -ex; \
 	echo "PS1='\w\$ '" >> /home/wodby/.bashrc; \
     \
     apk --update --no-cache -t .apache-rundeps add \
+        bash \
+        ca-certificates \
+        curl \
         findutils \
         make \
         nghttp2 \
@@ -39,6 +42,9 @@ RUN set -ex; \
         /usr/local/apache2; \
     \
     rm -f /usr/local/apache2/logs/httpd.pid; \
+    \
+    gotpl_url="https://github.com/wodby/gotpl/releases/download/0.1.5/gotpl-alpine-linux-amd64-0.1.5.tar.gz"; \
+    wget -qO- "${gotpl_url}" | tar xz -C /usr/local/bin; \
     \
     # Script to fix volumes permissions via sudo.
     echo "find ${APP_ROOT} ${FILES_DIR} -maxdepth 0 -uid 0 -type d -exec chown wodby:wodby {} +" > /usr/local/bin/init_volumes; \
