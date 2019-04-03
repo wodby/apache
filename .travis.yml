@@ -5,7 +5,7 @@ services:
 
 env:
   global:
-    - APACHE_VER=2.4.38 TAGS=2.4,2,latest
+    - APACHE_VER=2.4.39 TAGS=2.4,2,latest
 
 script:
   - set -e
