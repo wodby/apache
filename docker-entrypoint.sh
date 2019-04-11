@@ -45,5 +45,5 @@ exec_init_scripts
 if [[ "${1}" == 'make' ]]; then
     exec "${@}" -f /usr/local/bin/actions.mk
 else
-    exec $@
+    exec "${@}"
 fi
