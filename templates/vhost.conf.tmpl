@@ -10,6 +10,26 @@
     </Location>
     {{ end }}
 
+    <FilesMatch "^\.">
+        Order allow,deny
+        Deny from all
+    </FilesMatch>
+
+    <FilesMatch "^wodby.yml">
+        Order allow,deny
+        Deny from all
+    </FilesMatch>
+
+    <FilesMatch "^Makefile">
+        Order allow,deny
+        Deny from all
+    </FilesMatch>
+
+    <DirectoryMatch "^\.|\/\.">
+        Order allow,deny
+        Deny from all
+    </DirectoryMatch>
+
     {{ if getenv "APACHE_HTTP2" }}
     Protocols h2c http/1.1
     {{ end }}
