@@ -15,6 +15,11 @@
         Deny from all
     </FilesMatch>
 
+    <FilesMatch "\.(?:sh|sql|mysql|po|tpl|make|test)$">
+        Order allow,deny
+        Deny from all
+    </FilesMatch>
+
     <FilesMatch "^wodby\.yml">
         Order allow,deny
         Deny from all
