@@ -29,6 +29,7 @@ Loaded Modules:
  rewrite_module (shared)
  proxy_module (shared)
  proxy_fcgi_module (shared)
+ proxy_http_module (shared)
  proxy_http2_module (shared)
  setenvif_module (shared)
  ssl_module (shared)
