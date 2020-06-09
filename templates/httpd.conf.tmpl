@@ -69,9 +69,9 @@ ServerName localhost
     DirectoryIndex index.html
 </IfModule>
 
-<Files ".ht*">
+<Directory ~ "/\.(?!well-known\/)">
     Require all denied
-</Files>
+</Directory>
 
 ErrorLog /proc/self/fd/2
 LogLevel {{ getenv "APACHE_LOG_LEVEL" "warn" }}
