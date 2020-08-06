@@ -1,6 +1,6 @@
 -include env_make
 
-APACHE_VER ?= 2.4.43
+APACHE_VER ?= 2.4.46
 APACHE_VER_MINOR ?= $(shell echo "${APACHE_VER}" | grep -oE '^[0-9]+\.[0-9]+')
 BASE_IMAGE_TAG = $(APACHE_VER)-alpine
 
