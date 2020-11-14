@@ -7,7 +7,7 @@ if [[ -n "${DEBUG}" ]]; then
 fi
 
 apache_exec() {
-    docker-compose exec apache "${@}"
+    docker-compose exec -T apache "${@}"
 }
 
 docker-compose up -d
