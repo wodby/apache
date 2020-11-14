@@ -1,18 +1,18 @@
 # Apache HTTP Server Docker Container Image
 
-[![Build Status](https://travis-ci.org/wodby/apache.svg?branch=master)](https://travis-ci.org/wodby/apache)
+[![Build Status](https://github.com/wodby/apache/workflows/Build%20docker%20image/badge.svg)](https://github.com/wodby/apache/actions)
 [![Docker Pulls](https://img.shields.io/docker/pulls/wodby/apache.svg)](https://hub.docker.com/r/wodby/apache)
 [![Docker Stars](https://img.shields.io/docker/stars/wodby/apache.svg)](https://hub.docker.com/r/wodby/apache)
 [![Docker Layers](https://images.microbadger.com/badges/image/wodby/apache.svg)](https://microbadger.com/images/wodby/apache)
 
-* [Docker images](#docker-images)
-* [Environment variables](#environment-variables)
-* [Enabled modules](#enabled-modules)
-* [Virtual host presets](#virtual-hosts-presets)
-    * [HTML](#html)
-    * [PHP (FastCGI)](#php-fastcgi)
-* [Customization](#customization)
-* [Orchestration actions](#orchestration-actions)
+- [Docker images](#docker-images)
+- [Environment variables](#environment-variables)
+- [Enabled modules](#enabled-modules)
+- [Virtual host presets](#virtual-hosts-presets)
+    - [HTML](#html)
+    - [PHP (FastCGI)](#php-fastcgi)
+- [Customization](#customization)
+- [Orchestration actions](#orchestration-actions)
 
 ## Docker Images
 
@@ -20,14 +20,14 @@
 
 Overview:
 
-* All images are based on Alpine Linux
-* Base image: [httpd](https://github.com/docker-library/httpd)
-* [Travis CI builds](https://travis-ci.org/wodby/apache) 
-* [Docker Hub](https://hub.docker.com/r/wodby/apache) 
+- All images based on Alpine Linux
+- Base image: [httpd](https://github.com/docker-library/httpd)
+- [GitHub actions builds](https://github.com/wodby/apache/actions)
+- [Docker Hub](https://hub.docker.com/r/wodby/apache) 
 
 Supported tags and respective `Dockerfile` links:
 
-* `2.4`, `2`, `latest` [_(Dockerfile)_](https://github.com/wodby/apache/tree/master/Dockerfile)
+- `2.4`, `2`, `latest` [_(Dockerfile)_](https://github.com/wodby/apache/tree/master/Dockerfile)
 
 ## Environment Variables 
 
