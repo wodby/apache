@@ -2,6 +2,6 @@ DirectoryIndex {{ getenv "APACHE_DIRECTORY_INDEX" "index.html" }}
 
 <Directory "{{ getenv "APACHE_DOCUMENT_ROOT" "/var/www/html" }}">
     Options FollowSymLinks {{ if (getenv "APACHE_INDEXES_ENABLED") }}Indexes{{ end }}
-    AllowOverride None
+    AllowOverride {{ getenv "APACHE_ALLOW_OVERRIDE_ENABLED" "All" }}
     Require all granted
 </Directory>
