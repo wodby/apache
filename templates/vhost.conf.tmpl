@@ -1,4 +1,4 @@
-<VirtualHost *:80>
+<VirtualHost *:{{ getenv "APACHE_PORT" "80" }}>
     DocumentRoot "{{ getenv "APACHE_DOCUMENT_ROOT" "/var/www/html" }}"
     ServerName {{ getenv "APACHE_SERVER_NAME" "default" }}
 

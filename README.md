@@ -33,12 +33,12 @@ Supported tags and respective `Dockerfile` links:
 
 | Variable                             | Default Value                                    | Description |
 | ------------------------------------ | ------------------------------------------------ | ----------- |
+| `APACHE_ALLOW_OVERRIDE_ENABLED`      | `All`                                            |             |
 | `APACHE_DIRECTORY_INDEX`             | `index.html`                                     |             |
 | `APACHE_GROUP`                       | `apache`                                         |             |
 | `APACHE_HOSTNAME_LOOKUPS`            | `Off`                                            |             |
 | `APACHE_HTTP2`                       |                                                  |             |
 | `APACHE_INCLUDE_CONF`                | `conf/conf.d/*.conf`                             |             |
-| `APACHE_ALLOW_OVERRIDE_ENABLED`      | `All`                                            |             |
 | `APACHE_INDEXES_ENABLED`             |                                                  |             |
 | `APACHE_KEEP_ALIVE_TIMEOUT`          | `5`                                              |             |
 | `APACHE_KEEP_ALIVE`                  | `On`                                             |             |
@@ -51,6 +51,7 @@ Supported tags and respective `Dockerfile` links:
 | `APACHE_MPM_EVENT_THREAD_LIMIT`      | `64`                                             |             |
 | `APACHE_MPM_EVENT_THREADS_PER_CHILD` | `25`                                             |             |
 | `APACHE_MPM`                         | `event`                                          |             |
+| `APACHE_PORT`                        | `80`                                             |             |
 | `APACHE_REQUEST_READ_TIMEOUT`        | `header=20-40,MinRate=500` `body=20,MinRate=500` |             |
 | `APACHE_SERVER_NAME`                 | `default`                                        |             |
 | `APACHE_SERVER_NAME`                 | `default`                                        |             |
