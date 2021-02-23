@@ -11,6 +11,8 @@ ENV APACHE_VER="${APACHE_VER}" \
     APACHE_VHOST_PRESET="html" \
     APACHE_MPM="event"
 
+ARG BUILDPLATFORM
+
 RUN set -ex; \
     \
     deluser www-data; \
@@ -43,8 +45,9 @@ RUN set -ex; \
     \
     rm -f /usr/local/apache2/logs/httpd.pid; \
     \
-    gotpl_url="https://github.com/wodby/gotpl/releases/download/0.1.5/gotpl-alpine-linux-amd64-0.1.5.tar.gz"; \
-    wget -qO- "${gotpl_url}" | tar xz -C /usr/local/bin; \
+    dockerplatform=${BUILDPLATFORM:-linux/amd64}; \
+    gotpl_url="https://github.com/wodby/gotpl/releases/download/0.2.1/gotpl-${dockerplatform/\//-}.tar.gz"; \
+    wget -qO- "${gotpl_url}" | tar xz --no-same-owner -C /usr/local/bin; \
     \
     # Script to fix volumes permissions via sudo.
     echo "find ${APP_ROOT} ${FILES_DIR} -maxdepth 0 -uid 0 -type d -exec chown wodby:wodby {} +" > /usr/local/bin/init_volumes; \
