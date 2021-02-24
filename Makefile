@@ -17,7 +17,7 @@ ifneq ($(STABILITY_TAG),)
     endif
 endif
 
-.PHONY: build buildx-build buildx-build-amd64 buildx-push test push shell run start stop logs clean release
+.PHONY: build buildx-build buildx-push test push shell run start stop logs clean release
 
 default: build
 
@@ -25,13 +25,6 @@ build:
 	docker build -t $(REPO):$(TAG) \
 		--build-arg APACHE_VER=$(APACHE_VER) \
 		--build-arg BASE_IMAGE_TAG=$(BASE_IMAGE_TAG) \
-		./
-
-buildx-build-amd64:
-	docker buildx build --platform linux/amd64 -t $(REPO):$(TAG) \
-		--build-arg APACHE_VER=$(APACHE_VER) \
-		--build-arg BASE_IMAGE_TAG=$(BASE_IMAGE_TAG) \
-		--load \
 		./
 
 buildx-build:
