@@ -11,7 +11,7 @@ ENV APACHE_VER="${APACHE_VER}" \
     APACHE_VHOST_PRESET="html" \
     APACHE_MPM="event"
 
-ARG BUILDPLATFORM
+ARG TARGETPLATFORM
 
 RUN set -ex; \
     \
@@ -45,8 +45,8 @@ RUN set -ex; \
     \
     rm -f /usr/local/apache2/logs/httpd.pid; \
     \
-    dockerplatform=${BUILDPLATFORM:-linux/amd64}; \
-    gotpl_url="https://github.com/wodby/gotpl/releases/download/0.2.1/gotpl-${dockerplatform/\//-}.tar.gz"; \
+    dockerplatform=${TARGETPLATFORM:-linux/amd64}; \
+    gotpl_url="https://github.com/wodby/gotpl/releases/download/0.3.3/gotpl-${dockerplatform/\//-}.tar.gz"; \
     wget -qO- "${gotpl_url}" | tar xz --no-same-owner -C /usr/local/bin; \
     \
     # Script to fix volumes permissions via sudo.
