@@ -14,11 +14,12 @@ inputs:
 runs:
   using: "composite"
   steps:
-  - name: Build image
+  - name: Build and push image to docker.io
     env:
       APACHE_VER: ${{ inputs.version }}
       TAGS: ${{ inputs.tags }}
       PLATFORM: ${{ inputs.platform }}
+      DOCKER_REGISTRY: docker.io
     # First build for single-arch for tests (--load flag doesn't work for multiple platforms).
     run: |
       set -e
@@ -26,4 +27,14 @@ runs:
       make test
       make buildx-build
       . $GITHUB_ACTION_PATH/release.sh
+    shell: bash
+  - name: Build and push amd64 image to wodby registry
+    env:
+      APACHE_VER: ${{ inputs.version }}
+      TAGS: ${{ inputs.tags }}
+      PLATFORM: linux/amd64
+      DOCKER_REGISTRY: registry.wodby.com
+    run: |
+      set -e
+      DOCKER_USERNAME="${WODBY1_REGISTRY_USERNAME}" DOCKER_PASSWORD="${WODBY1_REGISTRY_PASSWORD}" . $GITHUB_ACTION_PATH/release.sh
     shell: bash
