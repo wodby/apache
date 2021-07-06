@@ -1,8 +1,6 @@
-ARG BASE_IMAGE_TAG
-
-FROM httpd:${BASE_IMAGE_TAG}
-
 ARG APACHE_VER
+
+FROM httpd:${APACHE_VER}-alpine
 
 ENV APACHE_VER="${APACHE_VER}" \
     APP_ROOT="/var/www/html" \

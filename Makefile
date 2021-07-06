@@ -2,7 +2,6 @@
 
 APACHE_VER ?= 2.4.48
 APACHE_VER_MINOR ?= $(shell echo "${APACHE_VER}" | grep -oE '^[0-9]+\.[0-9]+')
-BASE_IMAGE_TAG = $(APACHE_VER)-alpine
 
 TAG ?= $(APACHE_VER_MINOR)
 
@@ -25,19 +24,16 @@ default: build
 build:
 	docker build -t $(REPO):$(TAG) \
 		--build-arg APACHE_VER=$(APACHE_VER) \
-		--build-arg BASE_IMAGE_TAG=$(BASE_IMAGE_TAG) \
 		./
 
 buildx-build:
 	docker buildx build --platform $(PLATFORM) -t $(REPO):$(TAG) \
 		--build-arg APACHE_VER=$(APACHE_VER) \
-		--build-arg BASE_IMAGE_TAG=$(BASE_IMAGE_TAG) \
 		./
 
 buildx-push:
 	docker buildx build --platform $(PLATFORM) --push -t $(REPO):$(TAG) \
 		--build-arg APACHE_VER=$(APACHE_VER) \
-		--build-arg BASE_IMAGE_TAG=$(BASE_IMAGE_TAG) \
 		./
 
 test:
