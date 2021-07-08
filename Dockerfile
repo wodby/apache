@@ -1,6 +1,6 @@
 ARG APACHE_VER
 
-FROM httpd:${APACHE_VER}-alpine
+FROM httpd:${APACHE_VER}-alpine3.13
 
 ENV APACHE_VER="${APACHE_VER}" \
     APP_ROOT="/var/www/html" \
