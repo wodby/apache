@@ -21,7 +21,7 @@
 Overview:
 
 - All images based on Alpine Linux
-- Base image: [httpd](https://github.com/docker-library/httpd)
+- Base image: [wodby/httpd](https://github.com/wodby/httpd)
 - [GitHub actions builds](https://github.com/wodby/apache/actions)
 - [Docker Hub](https://hub.docker.com/r/wodby/apache) 
 
