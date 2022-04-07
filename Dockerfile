@@ -1,6 +1,7 @@
 ARG APACHE_VER
+ARG ALPINE_VER
 
-FROM wodby/httpd:${APACHE_VER}
+FROM wodby/httpd:${APACHE_VER}-alpine${ALPINE_VER}
 
 ENV APACHE_VER="${APACHE_VER}" \
     APP_ROOT="/var/www/html" \

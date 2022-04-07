@@ -3,7 +3,6 @@
 [![Build Status](https://github.com/wodby/apache/workflows/Build%20docker%20image/badge.svg)](https://github.com/wodby/apache/actions)
 [![Docker Pulls](https://img.shields.io/docker/pulls/wodby/apache.svg)](https://hub.docker.com/r/wodby/apache)
 [![Docker Stars](https://img.shields.io/docker/stars/wodby/apache.svg)](https://hub.docker.com/r/wodby/apache)
-[![Docker Layers](https://images.microbadger.com/badges/image/wodby/apache.svg)](https://microbadger.com/images/wodby/apache)
 
 - [Docker images](#docker-images)
 - [Environment variables](#environment-variables)
@@ -28,13 +27,14 @@ Overview:
 Supported tags and respective `Dockerfile` links:
 
 - `2.4`, `2`, `latest` [_(Dockerfile)_](https://github.com/wodby/apache/tree/master/Dockerfile)
+- `2.4-alpine3.13`, `2-alpine3.13`, `alpine3.13` [_(Dockerfile)_](https://github.com/wodby/apache/tree/master/Dockerfile)
 
 All images built for `linux/amd64` and `linux/arm64`
 
 ## Environment Variables 
 
 | Variable                             | Default Value                                    | Description |
-| ------------------------------------ | ------------------------------------------------ | ----------- |
+|--------------------------------------|--------------------------------------------------|-------------|
 | `APACHE_ALLOW_OVERRIDE_ENABLED`      | `All`                                            |             |
 | `APACHE_DIRECTORY_INDEX`             | `index.html`                                     |             |
 | `APACHE_GROUP`                       | `apache`                                         |             |
