@@ -20,14 +20,13 @@
 Overview:
 
 - All images based on Alpine Linux
-- Base image: [wodby/httpd](https://github.com/wodby/httpd)
+- Base image: [_/httpd](https://hub.docker.com/_/httpd)
 - [GitHub actions builds](https://github.com/wodby/apache/actions)
 - [Docker Hub](https://hub.docker.com/r/wodby/apache) 
 
 Supported tags and respective `Dockerfile` links:
 
 - `2.4`, `2`, `latest` [_(Dockerfile)_](https://github.com/wodby/apache/tree/master/Dockerfile)
-- `2.4-alpine3.13`, `2-alpine3.13`, `alpine3.13` [_(Dockerfile)_](https://github.com/wodby/apache/tree/master/Dockerfile)
 
 All images built for `linux/amd64` and `linux/arm64`
 

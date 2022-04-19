@@ -3,7 +3,6 @@
 APACHE_VER ?= 2.4.53
 APACHE_VER_MINOR ?= $(shell echo "${APACHE_VER}" | grep -oE '^[0-9]+\.[0-9]+')
 
-ALPINE_VER ?= 3.15
 TAG ?= $(APACHE_VER_MINOR)
 
 PLATFORM ?= linux/amd64
@@ -25,19 +24,16 @@ default: build
 build:
 	docker build -t $(REPO):$(TAG) \
 		--build-arg APACHE_VER=$(APACHE_VER) \
-		--build-arg ALPINE_VER=$(ALPINE_VER) \
 		./
 
 buildx-build:
 	docker buildx build --platform $(PLATFORM) -t $(REPO):$(TAG) \
 		--build-arg APACHE_VER=$(APACHE_VER) \
-		--build-arg ALPINE_VER=$(ALPINE_VER) \
 		./
 
 buildx-push:
 	docker buildx build --platform $(PLATFORM) --push -t $(REPO):$(TAG) \
 		--build-arg APACHE_VER=$(APACHE_VER) \
-		--build-arg ALPINE_VER=$(ALPINE_VER) \
 		./
 
 test:
