@@ -24,6 +24,7 @@ runs:
     run: |
       set -e
       PLATFORM=linux/amd64 make buildx-build
+      make
       make test
       make buildx-build
       . $GITHUB_ACTION_PATH/release.sh
