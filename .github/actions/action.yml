@@ -23,8 +23,7 @@ runs:
     # First build for single-arch for tests (--load flag doesn't work for multiple platforms).
     run: |
       set -e
-      PLATFORM=linux/amd64 make buildx-build
-      make
+      make buildx-build-amd64
       make test
       make buildx-build
       . $GITHUB_ACTION_PATH/release.sh
