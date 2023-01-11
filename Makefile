@@ -7,8 +7,7 @@ TAG ?= $(APACHE_VER_MINOR)
 
 PLATFORM ?= linux/amd64
 
-REGISTRY ?= docker.io
-REPO = $(REGISTRY)/wodby/apache
+REPO = wodby/apache
 NAME = apache-$(APACHE_VER_MINOR)
 
 ifneq ($(STABILITY_TAG),)
