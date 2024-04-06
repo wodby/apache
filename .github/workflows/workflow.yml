@@ -23,6 +23,6 @@ jobs:
     - uses: docker/setup-buildx-action@v1
     - uses: ./.github/actions
       with:
-        version: '2.4.58'
+        version: '2.4.59'
         tags: 2.4,2,latest
         platform: linux/amd64,linux/arm64
