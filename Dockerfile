@@ -52,6 +52,7 @@ RUN set -ex; \
     chmod +x /usr/local/bin/init_volumes; \
     \
     { \
+        echo "Defaults secure_path=\"$PATH\""; \
         echo -n 'wodby ALL=(root) NOPASSWD:SETENV: ' ; \
         echo -n '/usr/local/bin/init_volumes, ' ; \
         echo '/usr/local/apache2/bin/httpd' ; \
