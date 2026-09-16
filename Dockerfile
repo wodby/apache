@@ -11,7 +11,9 @@ ENV APACHE_VER="${APACHE_VER}" \
 
 ARG TARGETPLATFORM
 
+# Upgrade inherited packages even when their existing versions satisfy dependencies.
 RUN set -ex; \
+    apk upgrade --no-cache; \
     \
     deluser www-data; \
     addgroup -S apache; \
