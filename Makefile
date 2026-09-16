@@ -73,3 +73,16 @@ compare-orig-configs:
 	./check-configs.sh $(APACHE_VER)
 
 release: build push
+
+# Keep CI scans aligned with the version, variant and architecture built by make.
+.PHONY: image-ref
+image-ref:
+	@printf '%s\n' '$(REPO):$(TAG)'
+
+# Load each platform separately so the published image is the one Scout scanned.
+.PHONY: buildx-load
+buildx-load:
+	docker buildx build --platform $(PLATFORM) -t $(REPO):$(TAG) \
+		--build-arg APACHE_VER=$(APACHE_VER) \
+		--load \
+		./
