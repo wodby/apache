@@ -1,5 +1,8 @@
 -include env_make
 
+# Accept legacy build arguments during the image revision transition.
+IMAGE_REVISION ?= $(STABILITY_TAG)
+
 APACHE_VER ?= 2.4.68
 APACHE_VER_MINOR ?= $(shell echo "${APACHE_VER}" | grep -oE '^[0-9]+\.[0-9]+')
 
@@ -11,9 +14,9 @@ REGISTRY ?= docker.io
 REPO = $(REGISTRY)/wodby/apache
 NAME = apache-$(APACHE_VER_MINOR)
 
-ifneq ($(STABILITY_TAG),)
+ifneq ($(IMAGE_REVISION),)
     ifneq ($(TAG),latest)
-         override TAG := $(TAG)-$(STABILITY_TAG)
+         override TAG := $(TAG)-$(IMAGE_REVISION)
     endif
 endif
 
