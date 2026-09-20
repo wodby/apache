@@ -1,6 +1,11 @@
+# check=skip=InvalidDefaultArgInFrom
+
+# The Makefile supplies the required digest-pinned BASE_IMAGE argument.
 ARG APACHE_VER
 
-FROM httpd:${APACHE_VER}-alpine
+ARG BASE_IMAGE
+FROM ${BASE_IMAGE}
+ARG APACHE_VER
 
 ENV APACHE_VER="${APACHE_VER}" \
     APP_ROOT="/var/www/html" \

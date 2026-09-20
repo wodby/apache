@@ -19,28 +19,32 @@ endif
 
 .PHONY: build buildx-build buildx-build-amd64 buildx-push test push shell run start stop logs clean release
 
+# Resolve the same pinned base image for every local and CI build target.
+include base-images.mk
+BASE_IMAGE_TAG = $(APACHE_VER)-alpine
+
 default: build
 
 build:
-	docker build -t $(REPO):$(TAG) \
+	docker build --build-arg BASE_IMAGE="$(BASE_IMAGE)" -t $(REPO):$(TAG) \
 		--build-arg APACHE_VER=$(APACHE_VER) \
 		./
 
 # --load  doesn't work with multiple platforms https://github.com/docker/buildx/issues/59
 # we need to save cache to run tests first.
 buildx-build-amd64:
-	docker buildx build --platform linux/amd64 -t $(REPO):$(TAG) \
+	docker buildx build --build-arg BASE_IMAGE="$(BASE_IMAGE)" --platform linux/amd64 -t $(REPO):$(TAG) \
 		--build-arg APACHE_VER=$(APACHE_VER) \
 		--load \
 		./
 
 buildx-build:
-	docker buildx build --platform $(PLATFORM) -t $(REPO):$(TAG) \
+	docker buildx build --build-arg BASE_IMAGE="$(BASE_IMAGE)" --platform $(PLATFORM) -t $(REPO):$(TAG) \
 		--build-arg APACHE_VER=$(APACHE_VER) \
 		./
 
 buildx-push:
-	docker buildx build --platform $(PLATFORM) --push -t $(REPO):$(TAG) \
+	docker buildx build --build-arg BASE_IMAGE="$(BASE_IMAGE)" --platform $(PLATFORM) --push -t $(REPO):$(TAG) \
 		--build-arg APACHE_VER=$(APACHE_VER) \
 		./
 
@@ -82,7 +86,7 @@ image-ref:
 # Load each platform separately so the published image is the one Scout scanned.
 .PHONY: buildx-load
 buildx-load:
-	docker buildx build --platform $(PLATFORM) -t $(REPO):$(TAG) \
+	docker buildx build --build-arg BASE_IMAGE="$(BASE_IMAGE)" --platform $(PLATFORM) -t $(REPO):$(TAG) \
 		--build-arg APACHE_VER=$(APACHE_VER) \
 		--load \
 		./
