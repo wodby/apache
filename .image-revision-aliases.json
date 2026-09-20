@@ -1,0 +1,20 @@
+{
+  "schema": 1,
+  "image": "wodby/apache",
+  "versions": [
+    {
+      "version": {
+        "job": "apache-24"
+      },
+      "variants": [
+        {
+          "short": [
+            "{minor}",
+            "{major}"
+          ],
+          "full": "{version}"
+        }
+      ]
+    }
+  ]
+}

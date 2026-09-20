@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+
+# Version aliases identify published releases; only primary tags publish images.
+if [[ "${GITHUB_REF:-}" =~ ^refs/tags/.+-r[0-9]+$ ]]; then
+    exit 0
+fi
 set -euo pipefail
 
 # Publish the scanned image IDs; rebuilding here would bypass the security gate.
