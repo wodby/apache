@@ -3,7 +3,7 @@
 # Accept legacy build arguments during the image revision transition.
 IMAGE_REVISION ?= $(STABILITY_TAG)
 
-APACHE_VER ?= 2.4.68
+APACHE_VER ?= 2.4.69
 APACHE_VER_MINOR ?= $(shell echo "${APACHE_VER}" | grep -oE '^[0-9]+\.[0-9]+')
 
 TAG ?= $(APACHE_VER_MINOR)
