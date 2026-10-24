@@ -40,6 +40,11 @@ runs:
         make test
         image=$(make --no-print-directory -s image-ref)
         echo "image=$(docker image inspect --format '{{.Id}}' "$image")" >> "$GITHUB_OUTPUT"
+    - name: Verify Brotli security fixes
+      if: contains(inputs.platform, 'linux/amd64')
+      uses: wodby/images/.github/actions/check-brotli@4d79323d1d62295e425a222e8cb23ccf843cbbea
+      with:
+        image: ${{ steps.build-amd64.outputs.image }}
     - name: Scan amd64 image
       if: contains(inputs.platform, 'linux/amd64')
       uses: ./.github/actions/grype
@@ -58,6 +63,11 @@ runs:
         make buildx-load
         image=$(make --no-print-directory -s image-ref)
         echo "image=$(docker image inspect --format '{{.Id}}' "$image")" >> "$GITHUB_OUTPUT"
+    - name: Verify Brotli security fixes
+      if: contains(inputs.platform, 'linux/arm64')
+      uses: wodby/images/.github/actions/check-brotli@4d79323d1d62295e425a222e8cb23ccf843cbbea
+      with:
+        image: ${{ steps.build-arm64.outputs.image }}
     - name: Scan arm64 image
       if: contains(inputs.platform, 'linux/arm64')
       uses: ./.github/actions/grype
@@ -65,6 +75,7 @@ runs:
         image: docker:${{ steps.build-arm64.outputs.image }}
         platform: linux/arm64
     - name: Publish scanned images
+      if: github.event_name == 'push'
       shell: bash
       env:
         TAGS: ${{ inputs.tags }}
